@@ -126,12 +126,14 @@ $(document).ready(function(){initNavTree('projectDescriptionSchema.html','');});
   See the License for the specific language governing permissions and
   limitations under the License.
 
-  $Date:        06. July 2022
-  $Revision:    1.0.2
+  $Date:        30. August 2022
+  $Revision:    1.0.3
 
   $Project: Schema File for CMSIS Project Description File Format Specification
 
-  SchemaVersion=1.0.2
+  SchemaVersion=1.0.3
+
+  1.0.3: Added Brevision attribute, Bversion to be deprecated
 
   1.0.2: Added custom RTE attribute
 
@@ -227,10 +229,10 @@ $(document).ready(function(){initNavTree('projectDescriptionSchema.html','');});
   &lt;!-- Optimize enumeration type --&gt;
   &lt;xs:simpleType name="OptimizeEnum"&gt;
     &lt;xs:restriction base="xs:token"&gt;
-      &lt;xs:enumeration value="max" /&gt;
       &lt;xs:enumeration value="size" /&gt;
       &lt;xs:enumeration value="speed" /&gt;
-      &lt;xs:enumeration value="debug" /&gt;
+      &lt;xs:enumeration value="balanced" /&gt;
+      &lt;xs:enumeration value="none" /&gt;
     &lt;/xs:restriction&gt;
   &lt;/xs:simpleType&gt;
 
@@ -245,10 +247,8 @@ $(document).ready(function(){initNavTree('projectDescriptionSchema.html','');});
   &lt;!-- Warnings enumeration type --&gt;
   &lt;xs:simpleType name="WarningsEnum"&gt;
     &lt;xs:restriction base="xs:token"&gt;
-      &lt;xs:enumeration value="no" /&gt;
-      &lt;xs:enumeration value="all" /&gt;
-      &lt;xs:enumeration value="Misra" /&gt;
-      &lt;xs:enumeration value="AC5-like" /&gt;
+      &lt;xs:enumeration value="on" /&gt;
+      &lt;xs:enumeration value="off" /&gt;
     &lt;/xs:restriction&gt;
   &lt;/xs:simpleType&gt;
 
@@ -428,8 +428,10 @@ $(document).ready(function(){initNavTree('projectDescriptionSchema.html','');});
     &lt;xs:attribute name="Bvendor"  type="xs:string"   use="optional" /&gt;
     &lt;!-- Board Name --&gt;
     &lt;xs:attribute name="Bname"    type="xs:string"   use="optional" /&gt;
+    &lt;!-- Board Revision --&gt;
+    &lt;xs:attribute name="Brevision" type="xs:string"  use="optional" /&gt;
     &lt;!-- Board Version --&gt;
-    &lt;xs:attribute name="Bversion" type="xs:string"   use="optional" /&gt;
+    &lt;xs:attribute name="Bversion" type="xs:string"   use="optional" /&gt; &lt;!-- Deprecated --&gt;
     &lt;!-- Device Vendor --&gt;
     &lt;xs:attribute name="Dvendor"  type="xs:string"   use="optional" /&gt;
     &lt;!-- Device Name --&gt;
@@ -539,7 +541,7 @@ $(document).ready(function(){initNavTree('projectDescriptionSchema.html','');});
     &lt;xs:attribute name="layer"    type="RestrictedString"        use="optional" /&gt;
   &lt;/xs:complexType&gt;
 
-  &lt;xs:element name="FileFlags" abstract="true"/&gt; 
+  &lt;xs:element name="FileFlags" abstract="true"/&gt;
   &lt;xs:element name="cflags"   substitutionGroup="FileFlags" type="ToolOptionType" /&gt;
   &lt;xs:element name="cxxflags" substitutionGroup="FileFlags" type="ToolOptionType" /&gt;
   &lt;xs:element name="asflags"  substitutionGroup="FileFlags" type="AsmOptionType" /&gt;
