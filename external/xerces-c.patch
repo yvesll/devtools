@@ -1,0 +1,28 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index bee6cd581..16a3684b3 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -148,16 +148,16 @@ set(libdir "${CMAKE_INSTALL_FULL_LIBDIR}")
+ set(includedir "${CMAKE_INSTALL_FULL_INCLUDEDIR}")
+ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/xerces-c.pc.in
+                ${CMAKE_CURRENT_BINARY_DIR}/xerces-c.pc)
+-install(
+-  FILES ${CMAKE_CURRENT_BINARY_DIR}/xerces-c.pc
+-  DESTINATION "${PKGCONFIGDIR}"
+-  COMPONENT "development")
++#install(
++#  FILES ${CMAKE_CURRENT_BINARY_DIR}/xerces-c.pc
++#  DESTINATION "${PKGCONFIGDIR}"
++#  COMPONENT "development")
+ 
+ # Process subdirectories
+-add_subdirectory(doc)
++#add_subdirectory(doc)
+ add_subdirectory(src)
+-add_subdirectory(tests)
+-add_subdirectory(samples)
++#add_subdirectory(tests)
++#add_subdirectory(samples)
+ 
+ # Display configuration summary
+ message(STATUS "")

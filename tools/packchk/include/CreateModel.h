@@ -10,6 +10,7 @@
 #include "Validate.h"
 #include "RteModelReader.h"
 #include "PackChk.h"
+#include "XmlValidator.h"
 #include <list>
 #include <string>
 #include <set>
@@ -26,11 +27,15 @@ public:
   bool CheckForOtherPdscFiles(const std::string& pdscFullPath);
   bool AddPdsc(const std::string& pdscFile, bool bSkipCheckForOtherPdsc = false);
   bool AddRefPdsc(const std::set<std::string>& pdscRefFiles);
+  bool SetPackXsd(const std::string& packXsdFile);
   bool ReadAllPdsc();
   bool PrintPdscFiles(std::list<std::string>& pdscFiles);
 
 private:
   RteModelReader m_reader;
+  XmlValidator m_xmlValidator;
+  std::string m_schemaFile;
+  bool m_validatePdsc = false;
 
 };
 
