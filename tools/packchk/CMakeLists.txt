@@ -42,8 +42,6 @@ target_include_directories(packchklib
 set_property(TARGET packchklib PROPERTY
   MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
-link_directories(${CMAKE_BINARY_DIR}/external/xerces-c/src)
-
 target_link_libraries(packchklib CrossPlatform ErrLog RteModel RteFsUtils RteUtils XmlTree XmlTreeSlim cxxopts XmlValidator)
 
 # Create the packchk target

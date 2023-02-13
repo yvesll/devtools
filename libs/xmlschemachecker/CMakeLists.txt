@@ -21,4 +21,4 @@ target_include_directories(XmlValidator
         PRIVATE ${PROJECT_BINARY_DIR}/$<CONFIG>
         )
 
-target_link_libraries(XmlValidator ErrLog xerces-c)
+target_link_libraries(XmlValidator PRIVATE ErrLog xerces-c)
