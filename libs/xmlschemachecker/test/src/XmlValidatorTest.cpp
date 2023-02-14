@@ -5,7 +5,7 @@
  */
 
 #include "gtest/gtest.h"
-#include "XmlValidator.h"
+#include "XmlChecker.h"
 
 #include <list>
 #include <string>
@@ -18,31 +18,31 @@ class XmlValidatorTests : public ::testing::Test {
 protected:
     virtual void SetUp() {
       // Initialize XMLValidator object
-      validator = new XmlValidator();
+      checker = new XmlChecker();
     }
 
     virtual void TearDown() {
       // Clean up XMLValidator object
-      delete validator;
+      delete checker;
     }
 
-    XmlValidator* validator;
+    XmlChecker* checker;
 };
 
 // Test case for valid XML file
 TEST_F(XmlValidatorTests, validate_pdsc) {
-  string schemaFile = testDataFolder + "/PACK.xsd";
+  string packXsd = string(PACKXSD_FOLDER) + "/PACK.xsd";
   string pdscFile = testDataFolder + "/valid.pdsc";
 
   // Validate XML file against schema
-  EXPECT_TRUE(validator->validate(schemaFile, pdscFile));
+  EXPECT_TRUE(checker->Validate(pdscFile, packXsd));
 }
 
 // Test case for valid XML file
 TEST_F(XmlValidatorTests, invalidate_pdsc) {
-  string schemaFile = testDataFolder + "/PACK.xsd";
+  string packXsd = string(PACKXSD_FOLDER) + "/PACK.xsd";
   string pdscFile = testDataFolder + "/invalid.pdsc";
 
   // Validate XML file against schema
-  EXPECT_FALSE(validator->validate(schemaFile, pdscFile));
+  EXPECT_FALSE(checker->Validate(pdscFile, packXsd));
 }

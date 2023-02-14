@@ -391,9 +391,10 @@ TEST_F(PackChkIntegTests, CheckFeatureSON) {
 
   argv[0] = (char*)"";
   argv[1] = (char*)pdscFile.c_str();
+  argv[2] = (char *)"--disable-validation";
 
   PackChk packChk;
-  EXPECT_EQ(1, packChk.Check(2, argv, nullptr));
+  EXPECT_EQ(1, packChk.Check(3, argv, nullptr));
 
   auto errMsgs = ErrLog::Get()->GetLogMessages();
   bool bFound = false;
@@ -420,9 +421,10 @@ TEST_F(PackChkIntegTests, CheckCompResolvedByItself) {
 
   argv[0] = (char*)"";
   argv[1] = (char*)pdscFile.c_str();
+  argv[2] = (char *)"--disable-validation";
 
   PackChk packChk;
-  EXPECT_EQ(0, packChk.Check(2, argv, nullptr));
+  EXPECT_EQ(0, packChk.Check(3, argv, nullptr));
 
   auto errMsgs = ErrLog::Get()->GetLogMessages();
   int foundCnt = 0;

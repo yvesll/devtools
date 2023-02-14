@@ -16,7 +16,7 @@ public:
     XmlValidator();
     ~XmlValidator();
 
-    bool validate(const std::string& schemaFile, const std::string& xmlFile);
+    bool Validate(const std::string& xmlFile, const std::string& schemaFile);
 
 private:
     xercesc::XercesDOMParser* m_domParser;
