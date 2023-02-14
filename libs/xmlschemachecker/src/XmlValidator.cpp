@@ -43,7 +43,7 @@ XmlValidator::~XmlValidator()
  * @param xmlFile the xml file to validate
  * @return passed / failed
  */
-bool XmlValidator::validate(const string& schemaFile, const string& xmlFile)
+bool XmlValidator::Validate(const string& xmlFile, const string& schemaFile)
 {
   try {
     m_domParser->setExternalNoNamespaceSchemaLocation(schemaFile.c_str());

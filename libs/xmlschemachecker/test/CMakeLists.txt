@@ -8,6 +8,8 @@ set_property(TARGET XmlValidatorUnitTests PROPERTY
 set_property(TARGET XmlValidatorUnitTests PROPERTY
         VS_DEBUGGER_WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
 
+add_definitions(-DPACKXSD_FOLDER="${CMAKE_SOURCE_DIR}/external/open-cmsis-pack-spec/schema")
+
 target_link_libraries(XmlValidatorUnitTests PUBLIC XmlValidator gtest_main)
 
 add_test(NAME XmlValidatorUnitTests

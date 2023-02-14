@@ -167,9 +167,4 @@ add_subdirectory(external/json-schema-validator)
 add_subdirectory(external/fmt)
 
 #xerces-c
-set(CUR_CMAKE_MESSAGE_LOG_LEVEL ${CMAKE_MESSAGE_LOG_LEVEL})
-set(CMAKE_MESSAGE_LOG_LEVEL NOTICE)
-set(BUILD_SHARED_LIBS OFF)
-set(XERCES_STATIC_LIBRARY 1)
 add_subdirectory(external/xerces-c)
-set(CMAKE_MESSAGE_LOG_LEVEL ${CUR_CMAKE_MESSAGE_LOG_LEVEL})

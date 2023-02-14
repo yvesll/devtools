@@ -10,7 +10,7 @@
 #include "Validate.h"
 #include "RteModelReader.h"
 #include "PackChk.h"
-#include "XmlValidator.h"
+#include "XmlChecker.h"
 #include <list>
 #include <string>
 #include <set>
@@ -33,7 +33,7 @@ public:
 
 private:
   RteModelReader m_reader;
-  XmlValidator m_xmlValidator;
+  XmlChecker* m_xmlChecker;
   std::string m_schemaFile;
   bool m_validatePdsc = false;
 
