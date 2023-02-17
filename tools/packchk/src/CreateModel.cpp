@@ -8,6 +8,7 @@
 
 #include "ErrLog.h"
 #include "RteFsUtils.h"
+#include "XmlChecker.h"
 
 #include <list>
 #include <string>
@@ -116,8 +117,7 @@ bool CreateModel::AddPdsc(const string& pdscFile, bool bSkipCheckForOtherPdsc /*
   }
 
   if(m_validatePdsc) {
-    m_xmlChecker = new XmlChecker();
-    if(!m_xmlChecker->Validate(pdscFile, m_schemaFile)) {
+    if(!XmlChecker::Validate(pdscFile, m_schemaFile)) {
       return false;
     }
   }

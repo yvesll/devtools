@@ -16,17 +16,8 @@ const string testDataFolder = string(TEST_FOLDER) + "data";
 
 class XmlValidatorTests : public ::testing::Test {
 protected:
-    virtual void SetUp() {
-      // Initialize XMLValidator object
-      checker = new XmlChecker();
-    }
-
-    virtual void TearDown() {
-      // Clean up XMLValidator object
-      delete checker;
-    }
-
-    XmlChecker* checker;
+    virtual void SetUp() {}
+    virtual void TearDown() {}
 };
 
 // Test case for valid XML file
@@ -35,7 +26,7 @@ TEST_F(XmlValidatorTests, validate_pdsc) {
   string pdscFile = testDataFolder + "/valid.pdsc";
 
   // Validate XML file against schema
-  EXPECT_TRUE(checker->Validate(pdscFile, packXsd));
+  EXPECT_TRUE(XmlChecker::Validate(pdscFile, packXsd));
 }
 
 // Test case for valid XML file
@@ -44,5 +35,5 @@ TEST_F(XmlValidatorTests, invalidate_pdsc) {
   string pdscFile = testDataFolder + "/invalid.pdsc";
 
   // Validate XML file against schema
-  EXPECT_FALSE(checker->Validate(pdscFile, packXsd));
+  EXPECT_FALSE(XmlChecker::Validate(pdscFile, packXsd));
 }

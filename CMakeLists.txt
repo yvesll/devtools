@@ -167,4 +167,5 @@ add_subdirectory(external/json-schema-validator)
 add_subdirectory(external/fmt)
 
 #xerces-c
+set(XERCESC_BUILD_SHARED_LIBS OFF)
 add_subdirectory(external/xerces-c)
